@@ -44,7 +44,7 @@ fun AutosScreen(navController: NavController) {
             modifier = Modifier.fillMaxWidth()) { Text("Volver al Menú") }
     }
 }
-// Tarjeta individual de auto
+// Tarjeta individual de autoOO
 @Composable
 fun AutoCard(auto: Auto, format: NumberFormat) {
     Card(shape = RoundedCornerShape(16.dp)) {

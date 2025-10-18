@@ -1,7 +1,5 @@
 package com.example.practica1moviles.presentation.autos
 
-
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,20 +12,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.practica1moviles.data.repository.AutoRepository
 import java.text.NumberFormat
 import java.util.*
 
-data class Auto(val marca: String, val modelo: String, val precio: Double, val imagen: String)
-
 @Composable
 fun AutosScreen(navController: NavController) {
-    val autos = listOf(
-        Auto("Ferrari", "488 Pista", 1300000.0, "https://cdn.motor1.com/images/mgl/xpP9n/s3/ferrari-488-pista.jpg"),
-        Auto("Lamborghini", "Huracán EVO", 1200000.0, "https://cdn.motor1.com/images/mgl/x0xJ6/s3/lamborghini-huracan-evo.jpg"),
-        Auto("Porsche", "911 GT3 RS", 900000.0, "https://cdn.motor1.com/images/mgl/0kL1r/s3/porsche-911-gt3-rs.jpg"),
-        Auto("McLaren", "720S", 1100000.0, "https://cdn.motor1.com/images/mgl/02v8Y/s3/mclaren-720s.jpg"),
-        Auto("Aston Martin", "Vantage", 800000.0, "https://cdn.motor1.com/images/mgl/Yyyv0/s3/aston-martin-vantage.jpg")
-    )
+    val autos = AutoRepository.getAutosDeportivos()
     val total = autos.sumOf { it.precio }
     val format = NumberFormat.getCurrencyInstance(Locale("es", "PE"))
 
@@ -44,9 +35,9 @@ fun AutosScreen(navController: NavController) {
             modifier = Modifier.fillMaxWidth()) { Text("Volver al Menú") }
     }
 }
-// Tarjeta individual de autoOO
+
 @Composable
-fun AutoCard(auto: Auto, format: NumberFormat) {
+fun AutoCard(auto: com.example.practica1moviles.data.model.Auto, format: NumberFormat) {
     Card(shape = RoundedCornerShape(16.dp)) {
         Row(Modifier.fillMaxWidth().padding(12.dp)) {
             AsyncImage(

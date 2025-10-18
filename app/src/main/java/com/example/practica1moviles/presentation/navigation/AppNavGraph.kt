@@ -5,8 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pc_practica.presentation.actividad.ActividadScreen
-import com.example.pc_practica.presentation.agua.AguaScreen
+import com.example.practica1moviles.presentation.actividad.ActividadScreen
+import com.example.practica1moviles.presentation.agua.AguaScreen
+
 import com.example.practica1moviles.presentation.menu.MenuScreen
 
 import com.example.practica1moviles.presentation.autos.AutosScreen
